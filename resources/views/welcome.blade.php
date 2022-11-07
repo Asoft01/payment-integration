@@ -46,7 +46,6 @@
                         <i class="fa fa-rocket"></i> 
                         Pay Now 
                     </button>
-                    
                      <!-- Modal -->
                     <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                         <div class="modal-dialog">
@@ -82,17 +81,20 @@
                                             data-cc-on-file="false"
                                             data-stripe-publishable-key="{{ env('STRIPE_KEY') }}"
                                             id="payment-form"
-                                            novalidate>
+                                            novalidate
+                                            >
                                         @csrf
-
+                                    <div>
+                                        <input type="hidden" name="payment_id" value="1" required>
+                                    </div>
                                     <div class="form mt-3">
                                         <div class="inputbox">
-                                        <input type="text" name="name" class="form-control" required="required">
-                                        <span>Cardholder Name</span>
+                                            <input type="text" name="customer_name" class="form-control" required="required">
+                                            <span>Cardholder Name</span>
                                         </div>
                                         <div class="inputbox">
-                                        <input type="text" name="name" min="1" max="999" class="form-control card-number" required="required">
-                                        <span>Card Number</span>
+                                            <input type="text" name="name" min="1" max="999" class="form-control card-number" required="required">
+                                            <span>Card Number</span>
                                         <i class="fa fa-eye"></i>
                                         </div>
                                         <div class="d-flex flex-row">
@@ -108,23 +110,29 @@
                                             <input type="text" name="name" min="1" max="999" class="form-control card-cvc" required="required">
                                             <span>CVV</span>
                                         </div>
+                                        <div>
+                                            <input type="hidden" name="amount" value="100.00">
+                                        </div>
                                         </div>
                                         <div class="px-5 pay">
                                         {{-- <button class="btn btn-success btn-block">Add card</button> --}}
-                                        <button class="btn btn-primary btn-lg btn-success" type="submit">Add Card ($100)</button>
+                                        <button class="btn btn-primary btn-lg btn-success" type="submit">Pay ($100)</button>
                                         </div>
                                     </div>
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="paypal" role="tabpanel" aria-labelledby="paypal-tab">
+                                    <div>
+                                        <input type="hidden" name="payment_id" value="2" required>
+                                    </div>
                                     <div class="px-5 mt-5">
-                                    <div class="inputbox">
-                                        <input type="text" name="name" class="form-control" required="required">
-                                        <span>Paypal Email Address</span>
-                                    </div>
-                                    <div class="pay px-5">
-                                        <button class="btn btn-primary btn-block" >Add paypal</button>
-                                    </div>
+                                        <div class="inputbox">
+                                            <input type="text" name="name" class="form-control" required="required">
+                                            <span>Paypal Email Address</span>
+                                        </div>
+                                        <div class="pay px-5">
+                                            <button class="btn btn-primary btn-block" >Make Payment</button>
+                                        </div>
                                     </div>
                                 </div>
                                 </div>

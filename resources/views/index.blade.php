@@ -79,7 +79,7 @@
                         </div>
                         <div class="px-5 pay">
                           {{-- <button class="btn btn-success btn-block">Add card</button> --}}
-                          <button class="btn btn-primary btn-lg btn-success" type="submit">Add Card ($100)</button>
+                          <button class="btn btn-primary btn-lg btn-success" type="submit">Pay ($100)</button>
                         </div>
                       </div>
                     </div>
@@ -91,7 +91,7 @@
                         <span>Paypal Email Address</span>
                       </div>
                       <div class="pay px-5">
-                        <button class="btn btn-primary btn-block" >Add paypal</button>
+                        <button class="btn btn-primary btn-block" >Make Payment</button>
                       </div>
                     </div>
                   </div>

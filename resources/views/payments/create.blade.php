@@ -18,20 +18,20 @@
                 </div>
             @endif 
 
-            <form action="/categories/store" method="POST">
+            <form action="{{ isset($payment_details) ? "/payments/update/".$payment_details->id : "/payments/store" }}" method="POST">
                 @csrf
-                @if(isset($category))
+                @if(isset($payment_details))
                     @method('PUT')
                 @endif 
                 <div class="form-group">
                     <label for="name">
-                        <input type="text" id="name" class="form-control" name="name" value="{{ isset($category) ? $category->name : '' }}">
+                        <input type="text" id="name" class="form-control" name="name" value="{{ isset($payment_details) ? $payment_details->name : '' }}">
                     </label>
                 </div>
                 <br>
                 <div class="form-group offset">
                     <button class="btn btn-success">
-                        {{ isset($category) ? 'Update Category' : 'Add Category' }}
+                        {{ isset($payment_details) ? 'Update Payment Method' : 'Add Payment Method' }}
                     </button>
                 </div>
             </form>

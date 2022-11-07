@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\PaymentMethodController;
 use App\Http\Controllers\StripePaymentController;
+use App\Models\PaymentMethod;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,8 +27,12 @@ Route::post('stripe', [StripePaymentController::class, 'stripePost'])->name('str
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/categories/create', [CategoriesController::class, 'create']);
-Route::get('/index', [CategoriesController::class, 'index']);
-Route::post('/categories/store', [CategoriesController::class, 'store']);
+Route::get('/payments/create', [PaymentMethodController::class, 'create']);
+Route::get('/payments/edit/{id}', [PaymentMethodController::class, 'edit']);
+Route::put('/payments/update/{id}', [PaymentMethodController::class, 'update']);
+Route::get('/index', [PaymentMethodController::class, 'index']);
+Route::post('/payments/store', [PaymentMethodController::class, 'store']);
+
+
 
 
