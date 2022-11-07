@@ -30,6 +30,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/payments/create', [PaymentMethodController::class, 'create']);
 Route::get('/payments/edit/{id}', [PaymentMethodController::class, 'edit']);
 Route::put('/payments/update/{id}', [PaymentMethodController::class, 'update']);
+Route::delete('/payments/delete/{id}', [PaymentMethodController::class, 'destroy']);
 Route::get('/index', [PaymentMethodController::class, 'index']);
 Route::post('/payments/store', [PaymentMethodController::class, 'store']);
 

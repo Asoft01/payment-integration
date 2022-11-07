@@ -88,3 +88,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button{
     height: 47px;
     border-radius: 37px
 }
+
+#button1, #button2{
+    display: inline-block;
+}

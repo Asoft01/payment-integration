@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\PaymentMethod;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PaymentMethodController extends Controller
 {
@@ -42,9 +43,13 @@ class PaymentMethodController extends Controller
         return redirect(route('home'));
     }
 
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-           
+        // DB::delete('delete from payment_methods where id = ?', [$id]);
+        
+        $delete_payment = PaymentMethod::find($id); 
+        $delete_payment->delete(); 
+        return redirect(route('home'));
     }
     
 }

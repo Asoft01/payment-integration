@@ -26,7 +26,9 @@
                                         <span class="badge badge-success" style="color: red">Inactive</span>
                                     @endif
                                 </td>
-                                <td> <a class="btn btn-primary btn-sm"  href="/payments/edit/{{ $payment->id }}">Edit</a> | <a class="btn btn-danger btn-sm">Delete</a></td>
+                                <td> <a class="btn btn-primary btn-sm button1"  href="/payments/edit/{{ $payment->id }}">Edit</a> <br><br> 
+                                    <form action="/payments/delete/{{ $payment->id }}" method="POST">@csrf {{ method_field('delete') }}<button class="btn btn-danger btn-sm button2" href="">Delete</button></td>
+                                    </form>
                             </tr>
                         @endforeach
                     </tbody>
@@ -51,7 +53,6 @@
                     <thead>
                         <th>Name</th>
                         <th>Email</th>
-                        <th>Action</th>
                     </thead>
 
                     <tbody>
@@ -59,7 +60,6 @@
                             <tr>
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
-                                <td><a class="btn btn-primary btn-sm">Edit</a>  | <a class="btn btn-danger btn-sm">Delete</button></td>
                             </tr>
                         @endforeach
                     </tbody>

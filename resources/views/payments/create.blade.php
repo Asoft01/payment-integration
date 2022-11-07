@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="card card-default">
+    <div class="card card-default text-center"  style="width: 18rem; margin-left:500px">
         <div class="card-header">
             {{ isset($category) ? 'Edit Payment' : 'Create Payment Method' }}
         </div>
